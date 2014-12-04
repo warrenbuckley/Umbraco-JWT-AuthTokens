@@ -16,3 +16,4 @@ Cached/
 !**/App_Data/[Pp]ackages/
 !**/[Uu]mbraco/developer/[Pp]ackages
 Umbraco.AuthTokens/obj/
+Umbraco.AuthTokens.TestSite/obj/
