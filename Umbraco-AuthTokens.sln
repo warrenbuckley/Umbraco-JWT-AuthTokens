@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.AuthTokens", "Umbraco.AuthTokens\Umbraco.AuthTokens.csproj", "{C7099A8D-2F18-4F27-A2A5-97813FAF69F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.AuthTokens.TestSite", "Umbraco.AuthTokens.TestSite\Umbraco.AuthTokens.TestSite.csproj", "{BB737735-06F0-49DA-B4AD-C1D537921AF1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.AuthTokens.TestSite", "Umbraco.AuthTokens.TestSite\Umbraco.AuthTokens.TestSite.csproj", "{05ACB1A4-61D0-4475-AD67-E9B585E6FEFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{C7099A8D-2F18-4F27-A2A5-97813FAF69F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7099A8D-2F18-4F27-A2A5-97813FAF69F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7099A8D-2F18-4F27-A2A5-97813FAF69F2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB737735-06F0-49DA-B4AD-C1D537921AF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB737735-06F0-49DA-B4AD-C1D537921AF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB737735-06F0-49DA-B4AD-C1D537921AF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB737735-06F0-49DA-B4AD-C1D537921AF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05ACB1A4-61D0-4475-AD67-E9B585E6FEFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05ACB1A4-61D0-4475-AD67-E9B585E6FEFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05ACB1A4-61D0-4475-AD67-E9B585E6FEFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05ACB1A4-61D0-4475-AD67-E9B585E6FEFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
