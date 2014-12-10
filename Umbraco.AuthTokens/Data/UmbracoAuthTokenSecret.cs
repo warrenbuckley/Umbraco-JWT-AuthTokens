@@ -2,15 +2,18 @@
 
 namespace Umbraco.AuthTokens.Data
 {
-    public class UmbracoAuthTokenSecret
+    public static class UmbracoAuthTokenSecret
     {
         private const string SecretEnvVariable = "Umbraco.AuthToken";
+
+        //TODO: Check EnvVariable works well with Azure Websites (No access to server itself)
+        //Same with Umbraco.io/Umbraco.com perhaps? If they have a UI to set, add & edit them?
 
         /// <summary>
         /// This sets the secret as an Environment Variable
         /// </summary>
         /// <param name="secret">Secret string to set</param>
-        public void SetSecret(string secret)
+        public static void SetSecret(string secret)
         {
             Environment.SetEnvironmentVariable(SecretEnvVariable, secret, EnvironmentVariableTarget.Machine);
         }
@@ -19,9 +22,20 @@ namespace Umbraco.AuthTokens.Data
         /// Goes & fetchs the secret from the Machine Environment Variables
         /// </summary>
         /// <returns>Returns the string secret</returns>
-        public string GetSecret()
+        public static string GetSecret()
         {
-            return Environment.GetEnvironmentVariable(SecretEnvVariable, EnvironmentVariableTarget.Machine);
+            var secret = Environment.GetEnvironmentVariable(SecretEnvVariable, EnvironmentVariableTarget.Machine);
+
+            //If it does not exist or is null/empty then we set a new one
+            if (string.IsNullOrEmpty(secret))
+            {
+                //Lets create a random strong password& set env variable
+                secret = "foobar";
+                SetSecret(secret);
+            }
+
+            //Return the secret
+            return secret;
         }
     }
 }
