@@ -7,7 +7,7 @@ namespace Umbraco.AuthTokens.Data
 {
     public static class UmbracoAuthTokenFactory
     {
-        static string _secretKey = Environment.GetEnvironmentVariable("Umbraco.AuthToken", EnvironmentVariableTarget.Machine);
+        static string _secretKey = UmbracoAuthTokenSecret.GetSecret();
 
         /// <summary>
         /// 
