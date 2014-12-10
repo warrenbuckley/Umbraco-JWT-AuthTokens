@@ -23,9 +23,6 @@ namespace Umbraco.AuthTokens
                 db.CreateTable<UmbracoAuthToken>(false);
             }
 
-            //TODO: Generate a strong random secret/key to set as Env variable
-
-
             //Add event to saving/chaning pasword on Umbraco backoffice user
             UserService.SavingUser += UserService_SavingUser;
 
