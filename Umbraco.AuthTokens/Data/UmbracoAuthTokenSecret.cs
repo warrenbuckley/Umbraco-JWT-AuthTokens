@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.Security;
 
 namespace Umbraco.AuthTokens.Data
 {
@@ -29,8 +30,10 @@ namespace Umbraco.AuthTokens.Data
             //If it does not exist or is null/empty then we set a new one
             if (string.IsNullOrEmpty(secret))
             {
-                //Lets create a random strong password& set env variable
-                secret = "foobar";
+                //Lets create a random strong password & set env variable
+                secret =  Membership.GeneratePassword(50, 5);
+
+                //Set it as the Env Var
                 SetSecret(secret);
             }
 
