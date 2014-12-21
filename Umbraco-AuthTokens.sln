@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.AuthTokens", "Umbra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.AuthTokens.TestSite", "Umbraco.AuthTokens.TestSite\Umbraco.AuthTokens.TestSite.csproj", "{05ACB1A4-61D0-4475-AD67-E9B585E6FEFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.AuthTokens.TestApi", "Umbraco.AuthTokens.TestApi\Umbraco.AuthTokens.TestApi.csproj", "{AE92A898-18D4-4867-89E1-831CEC26913F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{05ACB1A4-61D0-4475-AD67-E9B585E6FEFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05ACB1A4-61D0-4475-AD67-E9B585E6FEFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05ACB1A4-61D0-4475-AD67-E9B585E6FEFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE92A898-18D4-4867-89E1-831CEC26913F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE92A898-18D4-4867-89E1-831CEC26913F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE92A898-18D4-4867-89E1-831CEC26913F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE92A898-18D4-4867-89E1-831CEC26913F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
