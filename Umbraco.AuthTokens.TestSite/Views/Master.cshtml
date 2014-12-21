@@ -1,7 +1,9 @@
-@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = null;
 	var home = @CurrentPage.Site();
+
+    var secret = global::Umbraco.AuthTokens.Data.UmbracoAuthTokenSecret.GetSecret();
 }
 
 <!DOCTYPE html>
@@ -31,6 +33,9 @@
       <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+      
+      <!-- Token from Env (@secret) -->
+      
   </head>
 
   <body>
