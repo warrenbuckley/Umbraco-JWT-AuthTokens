@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Security;
 
-namespace Umbraco.AuthTokens.Data
+namespace UmbracoAuthTokens.Data
 {
     public static class UmbracoAuthTokenSecret
     {

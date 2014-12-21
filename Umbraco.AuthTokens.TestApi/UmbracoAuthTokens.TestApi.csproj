@@ -7,8 +7,8 @@
     <ProjectGuid>{AE92A898-18D4-4867-89E1-831CEC26913F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Umbraco.AuthTokens.TestApi</RootNamespace>
-    <AssemblyName>Umbraco.AuthTokens.TestApi</AssemblyName>
+    <RootNamespace>UmbracoAuthTokens.TestApi</RootNamespace>
+    <AssemblyName>UmbracoAuthTokens.TestApi</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -196,9 +196,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Umbraco.AuthTokens\Umbraco.AuthTokens.csproj">
+    <ProjectReference Include="..\Umbraco.AuthTokens\UmbracoAuthTokens.csproj">
       <Project>{c7099a8d-2f18-4f27-a2a5-97813faf69f2}</Project>
-      <Name>Umbraco.AuthTokens</Name>
+      <Name>UmbracoAuthTokens</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

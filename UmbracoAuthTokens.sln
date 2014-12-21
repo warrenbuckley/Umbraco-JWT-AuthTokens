@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.AuthTokens", "Umbraco.AuthTokens\Umbraco.AuthTokens.csproj", "{C7099A8D-2F18-4F27-A2A5-97813FAF69F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UmbracoAuthTokens", "Umbraco.AuthTokens\UmbracoAuthTokens.csproj", "{C7099A8D-2F18-4F27-A2A5-97813FAF69F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.AuthTokens.TestSite", "Umbraco.AuthTokens.TestSite\Umbraco.AuthTokens.TestSite.csproj", "{05ACB1A4-61D0-4475-AD67-E9B585E6FEFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UmbracoAuthTokens.TestSite", "Umbraco.AuthTokens.TestSite\UmbracoAuthTokens.TestSite.csproj", "{05ACB1A4-61D0-4475-AD67-E9B585E6FEFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.AuthTokens.TestApi", "Umbraco.AuthTokens.TestApi\Umbraco.AuthTokens.TestApi.csproj", "{AE92A898-18D4-4867-89E1-831CEC26913F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UmbracoAuthTokens.TestApi", "Umbraco.AuthTokens.TestApi\UmbracoAuthTokens.TestApi.csproj", "{AE92A898-18D4-4867-89E1-831CEC26913F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

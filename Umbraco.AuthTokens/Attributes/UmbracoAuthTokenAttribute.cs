@@ -5,11 +5,11 @@ using System.Net.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using JWT;
-using Umbraco.AuthTokens.Data;
 using Umbraco.Core;
 using Umbraco.Core.Models.Membership;
+using UmbracoAuthTokens.Data;
 
-namespace Umbraco.AuthTokens.Attributes
+namespace UmbracoAuthTokens.Attributes
 {
     //KUDOS to Stephan Gay
     //This is from his BasicAuth attribute in Models Builder

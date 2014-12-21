@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using JWT;
 
-namespace Umbraco.AuthTokens.Data
+namespace UmbracoAuthTokens.Data
 {
     public static class UmbracoAuthTokenFactory
     {

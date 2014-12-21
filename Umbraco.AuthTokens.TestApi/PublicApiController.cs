@@ -3,8 +3,9 @@ using System.Net.Http;
 using System.Web.Http;
 using Umbraco.Web.Mvc;
 using Umbraco.Web.WebApi;
+using UmbracoAuthTokens.Data;
 
-namespace Umbraco.AuthTokens.TestApi
+namespace UmbracoAuthTokens.TestApi
 {
     [PluginController("Test")]
     public class PublicApiController : UmbracoApiController
@@ -36,7 +37,7 @@ namespace Umbraco.AuthTokens.TestApi
                 var user = ApplicationContext.Services.UserService.GetByUsername(auth.Username);
 
                 //Check if we have an Auth Token for user
-                var hasAuthToken = global::Umbraco.AuthTokens.Data.UserAuthTokenDbHelper.GetAuthToken(user.Id);
+                var hasAuthToken = UserAuthTokenDbHelper.GetAuthToken(user.Id);
 
                 //If the token already exists
                 if (hasAuthToken != null)
@@ -47,19 +48,19 @@ namespace Umbraco.AuthTokens.TestApi
 
                 //Else user has no token yet - so let's create one
                 //Generate AuthToken DB object
-                var newToken = new Data.UmbracoAuthToken();
+                var newToken = new UmbracoAuthToken();
                 newToken.UserId = user.Id;
                 newToken.UserName = user.Username;
                 newToken.UserType = user.UserType.Alias;
 
                 //Generate a new token for the user
-                var authToken = global::Umbraco.AuthTokens.Data.UmbracoAuthTokenFactory.GenerateUserAuthToken(newToken);
+                var authToken = UmbracoAuthTokenFactory.GenerateUserAuthToken(newToken);
 
                 //We insert authToken as opposed to newToken
                 //As authToken now has DateTime & JWT token string on it now
 
                 //Store in DB (inserts or updates existing)
-                global::Umbraco.AuthTokens.Data.UserAuthTokenDbHelper.InsertAuthToken(authToken);
+                UserAuthTokenDbHelper.InsertAuthToken(authToken);
 
                 //Return the JWT token as the response
                 //This means valid login & client in our case mobile app stores token in local storage

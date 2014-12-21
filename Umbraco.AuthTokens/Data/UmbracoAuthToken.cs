@@ -2,7 +2,7 @@
 using Umbraco.Core.Persistence;
 using Umbraco.Core.Persistence.DatabaseAnnotations;
 
-namespace Umbraco.AuthTokens.Data
+namespace UmbracoAuthTokens.Data
 {
     [TableName("userAuthTokens")]
     [PrimaryKey("pk")]

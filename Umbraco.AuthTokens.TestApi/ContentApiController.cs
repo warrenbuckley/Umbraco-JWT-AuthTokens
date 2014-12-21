@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using Umbraco.AuthTokens.Attributes;
 using Umbraco.Core.Models;
 using Umbraco.Core.Models.Membership;
 using Umbraco.Web.Mvc;
 using Umbraco.Web.WebApi;
+using UmbracoAuthTokens.Attributes;
 
-namespace Umbraco.AuthTokens.TestApi
+namespace UmbracoAuthTokens.TestApi
 {
     [PluginController("Test")]
     [UmbracoAuthToken("content", "settings")]

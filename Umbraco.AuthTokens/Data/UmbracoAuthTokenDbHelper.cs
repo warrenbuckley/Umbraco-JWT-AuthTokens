@@ -1,7 +1,7 @@
 ﻿using Umbraco.Core;
 using Umbraco.Core.Persistence;
 
-namespace Umbraco.AuthTokens.Data
+namespace UmbracoAuthTokens.Data
 {
     public static class UserAuthTokenDbHelper
     {

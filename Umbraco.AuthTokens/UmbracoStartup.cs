@@ -1,10 +1,11 @@
 ﻿using System.Linq;
-using Umbraco.AuthTokens.Data;
 using Umbraco.Core;
+using Umbraco.Core.Models.Membership;
 using Umbraco.Core.Persistence;
 using Umbraco.Core.Services;
+using UmbracoAuthTokens.Data;
 
-namespace Umbraco.AuthTokens
+namespace UmbracoAuthTokens
 {
     public class UmbracoStartup : ApplicationEventHandler
     {
@@ -34,7 +35,7 @@ namespace Umbraco.AuthTokens
         /// <summary>
         /// When we save a user, let's check if backoffice user has changed their password
         /// </summary>
-        void UserService_SavingUser(IUserService sender, Core.Events.SaveEventArgs<Core.Models.Membership.IUser> e)
+        void UserService_SavingUser(IUserService sender, Umbraco.Core.Events.SaveEventArgs<IUser> e)
         {  
             //Saved entites (Could be more than one user saved. Very unlikely?)
             var user = e.SavedEntities.FirstOrDefault();
