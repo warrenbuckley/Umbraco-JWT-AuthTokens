@@ -21,7 +21,7 @@ namespace UmbracoAuthTokens
             if (!db.TableExist("UserAuthTokens"))
             {
                 //Create Table - do not override
-                //db.CreateTable<UmbracoAuthToken>(false);
+                db.CreateTable<UmbracoAuthToken>(false);
             }
 
             //Add event to saving/chaning pasword on Umbraco backoffice user

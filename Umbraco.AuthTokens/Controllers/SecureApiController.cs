@@ -5,27 +5,17 @@ using Umbraco.Web.Mvc;
 using Umbraco.Web.WebApi;
 using UmbracoAuthTokens.Data;
 
-namespace UmbracoAuthTokens.TestApi
+namespace UmbracoAuthTokens.Controllers
 {
-    [PluginController("Test")]
-    public class PublicApiController : UmbracoApiController
+    [PluginController("TokenAuth")]
+    public class SecureApiController : UmbracoApiController
     {
         /// <summary>
-        /// A simple API call to check if our API exists & is installed
-        /// http://localhost:49683/umbraco/Test/PublicApi/Ping
+        /// http://localhost:49683/umbraco/TokenAuth/SecureApi/Authorise
         /// </summary>
-        [HttpGet]
-        public string Ping()
-        {
-            return "pong";
-        }
-
-        /// <summary>
-        /// http://localhost:49683/umbraco/Test/PublicApi/Auth
-        /// </summary>
-        /// <returns>A JWT token if auth is valid</returns>
+        /// <returns>A JWT token as a string if auth is valid</returns>
         [HttpPost]
-        public string Auth(AuthCredentials auth)
+        public string Authorise(AuthCredentials auth)
         {
             //Verify user is valid credentials
             var isValidAuth = Security.ValidateBackOfficeCredentials(auth.Username, auth.Password);
@@ -74,7 +64,8 @@ namespace UmbracoAuthTokens.TestApi
 
 
         /// <summary>
-        /// Simple model of usernmae & password we post to our controller
+        /// Simple model of the Umbraco backoffice Username & Password 
+        /// we HTTP POST to our controller method 'Authorise'
         /// </summary>
         public class AuthCredentials
         {

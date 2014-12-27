@@ -1,29 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Http;
 using Umbraco.Core.Models;
-using Umbraco.Core.Models.Membership;
 using Umbraco.Web.Mvc;
-using Umbraco.Web.WebApi;
 using UmbracoAuthTokens.Attributes;
+using UmbracoAuthTokens.Controllers;
 
 namespace UmbracoAuthTokens.TestApi
 {
-    [PluginController("Test")]
+    [PluginController("Secured")]
     [UmbracoAuthToken("content", "settings")]
-    public class ContentApiController : UmbracoApiController
+    public class ContentApiController : UmbracoAuthTokenApiController
     {
-        /// <summary>
-        /// Gets the Umbraco Backoffice user from the JWT Auth token
-        /// Can use with normal Umbraco APIs then, for saving content etc...
-        /// </summary>
-        public IUser BackOfficeUser
-        {
-            get
-            {
-                return ControllerContext.RouteData.Values["umbraco-user"] as IUser;
-            }
-        }
-
         /// <summary>
         /// 
         /// </summary>
@@ -35,10 +23,25 @@ namespace UmbracoAuthTokens.TestApi
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public string SecurePing()
         {
-            return "Secure Pong";
+            return string.Format("Secure Pong from {0} {1}", AuthorisedBackofficeUser.Name, AuthorisedBackofficeUser.Email);
+        }
+
+
+        [HttpGet]
+        public IContent CreateNewRootNode()
+        {
+            var newNodeName = string.Format("New Node {0}", DateTime.Now.ToShortDateString());
+            var parentNodeId = -1;
+            var contentTypeAlias = "Home";
+
+            return Services.ContentService.CreateContentWithIdentity(newNodeName, parentNodeId, contentTypeAlias, AuthorisedBackofficeUser.Id);
         }
 
     }
