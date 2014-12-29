@@ -60,3 +60,78 @@ My implementation allows the tokens to work indefinitely until the user in the U
 Which creates a new token and thus revoking access to the API for any clients or services using it.
 
 However it is easily possible to store an expiry date in the JSON payload of the Auth Token and when decoding it verifying the expiry date on it.
+
+How to use this
+======================
+Here are some simple instructions on how to use this to secure an API Controller in your Umbraco website with JWT Auth Tokens.
+
+## Creating your API Controller Class
+You will need to implement the following class `UmbracoAuthTokenApiController` similar to how you would use `UmbracoApiController` or `UmbracoAuthorizedApiController`
+
+See the Umbraco Documentation for Umbraco API Controller Reference:<br/>
+http://our.umbraco.org/documentation/Reference/WebApi/<br/>
+http://our.umbraco.org/documentation/Reference/WebApi/authorization
+
+Implementing the `UmbracoAuthTokenApiController` in conjuction with the `UmbracoAuthToken` attribute to decorate the API class allows us to access a new property in the Web API controller called `AuthorisedBackofficeUser` which is the authorised Umbraco backoffice user from the JWT token, this can be used with the normal Umbraco Services APIs to Create Content and assign the correct user to the creation of that node.
+
+## Authorising the user & obtaining a JWT token
+In this project there is a built in Web API URL route for you to do a HTTP POST with the Username and Password. Your application to gain a JWT token must POST to this URL:
+http://yoursite.co.uk/umbraco/TokenAuth/SecureApi/Authorise
+
+## Secured API Controller
+The following is a very simple secued Umbraco API controller, obviously your needs and uses will be much better than the very basic example shown here.
+
+The `UmbracoAuthToken` attribute has an optional parameter `HasAccessToSections` which is an string array of Umbraco backoffice section aliases that the attempted backoffice Umbraco user should have access to.
+
+For example this checks the following user has access to the `content` and the `settings` sections, if they do not have access to **both** sections then the WebAPI will return 401 Unauthorised HTTP Error Code.
+
+`[UmbracoAuthToken("content", "settings")]`
+
+### Full Example
+```cs
+using System;
+using System.Web.Http;
+using Umbraco.Core.Models;
+using Umbraco.Web.Mvc;
+using UmbracoAuthTokens.Attributes;
+using UmbracoAuthTokens.Controllers;
+
+namespace UmbracoAuthTokens.TestApi
+{
+    [PluginController("Secured")]
+    [UmbracoAuthToken("content", "settings")]
+    public class ContentApiController : UmbracoAuthTokenApiController
+    {
+        /// <summary>
+        /// A simple GET that shows the backoffice user's name & email address from the JWT Auth Token
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public string SecurePing()
+        {
+            return string.Format("Secure Pong from {0} {1}", AuthorisedBackofficeUser.Name, AuthorisedBackofficeUser.Email);
+        }
+
+
+        /// <summary>
+        /// Note this is NOT a great example. As you would POST data to create a node.
+        /// As opposed to a GET with this hardcoded values
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IContent CreateNewRootNode()
+        {
+            var newNodeName = string.Format("New Node {0}", DateTime.Now.ToShortDateString());
+            var parentNodeId = -1;
+            var contentTypeAlias = "Home";
+
+            return Services.ContentService.CreateContentWithIdentity(newNodeName, parentNodeId, contentTypeAlias, AuthorisedBackofficeUser.Id);
+        }
+    }
+}
+```
+
+
+
+
+
