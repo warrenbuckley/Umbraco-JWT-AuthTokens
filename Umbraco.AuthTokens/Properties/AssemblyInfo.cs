@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("UmbracoAuthTokens")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("This class library allows you to secure Umbraco CMS Web APIs using JWT token based authentication for backoffice users")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Warren Buckley")]
 [assembly: AssemblyProduct("UmbracoAuthTokens")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
