@@ -34,6 +34,10 @@ namespace UmbracoAuthTokens.TestApi
         }
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IContent CreateNewRootNode()
         {
