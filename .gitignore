@@ -26,3 +26,4 @@ Umbraco.AuthTokens/App_Data/NuGetBackup/
 Umbraco.AuthTokens.TestApi/bin/
 Umbraco.AuthTokens.TestSite/App_Data/cache/
 Umbraco.AuthTokens.TestApi/obj/
+Umbraco.AuthTokens/*.nupkg
