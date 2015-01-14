@@ -15,7 +15,7 @@ namespace UmbracoAuthTokens.Controllers
         {
             get
             {
-                return ControllerContext.RouteData.Values["umbraco-user"] as IUser; 
+                return ControllerContext.Request.Properties["umbraco-user"] as IUser;
             }
         }
     }

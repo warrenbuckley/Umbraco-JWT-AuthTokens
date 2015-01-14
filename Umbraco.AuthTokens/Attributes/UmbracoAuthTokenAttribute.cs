@@ -43,7 +43,7 @@ namespace UmbracoAuthTokens.Attributes
                 }
 
                 //Set the user in route data so the WebAPI controller can use this user object & do what needed with it
-                actionContext.ControllerContext.RouteData.Values["umbraco-user"] = user;
+                actionContext.ControllerContext.Request.Properties.Add("umbraco-user", user);
 
                 //If we have any optional sections to check for
                 if (_hasAccessToSections.Any())
