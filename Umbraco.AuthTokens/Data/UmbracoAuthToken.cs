@@ -4,7 +4,7 @@ using Umbraco.Core.Persistence.DatabaseAnnotations;
 
 namespace UmbracoAuthTokens.Data
 {
-    [TableName("userAuthTokens")]
+    [TableName("identityAuthTokens")]
     [PrimaryKey("pk")]
     [ExplicitColumns]
     public class UmbracoAuthToken
@@ -13,19 +13,18 @@ namespace UmbracoAuthTokens.Data
         [PrimaryKeyColumn]
         public int PrimaryKey { get; set; }
 
-        [Column("userId")]
-        public int UserId { get; set; }
+        [Column("identityId")]
+        public int IdentityId { get; set; }
 
-        [Column("userName")]
-        public string UserName { get; set; }
-
-        [Column("userType")]
-        public string UserType { get; set; }
+        [Column("identityType")]
+        public string IdentityType { get; set; }
 
         [Column("dateCreated")]
         public DateTime DateCreated { get; set; }
 
         [Column("authToken")]
         public string AuthToken { get; set; }
+
+
     }
 }
