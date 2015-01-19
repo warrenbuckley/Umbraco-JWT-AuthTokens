@@ -22,9 +22,8 @@ namespace UmbracoAuthTokens.Data
 
             //Create JSON payload for JWT token
             var payload = new Dictionary<string, object>() {
-                { "user_id", authToken.UserId },
-                { "username", authToken.UserName },
-                { "user_type", authToken.UserType },
+                { "identity_id", authToken.IdentityId },
+                { "identity_type", authToken.IdentityType },
                 { "date_created", dateCreatedToString }
             };
 
@@ -60,9 +59,8 @@ namespace UmbracoAuthTokens.Data
                 DateTime.TryParseExact(jsonPayload["date_created"].ToString(), "u", null, DateTimeStyles.AdjustToUniversal, out dateCreated);
 
                 //Get the details of the user from the JWT payload
-                userAuth.UserId = Convert.ToInt32(jsonPayload["user_id"]);
-                userAuth.UserName = jsonPayload["username"].ToString();
-                userAuth.UserType = jsonPayload["user_type"].ToString();
+                userAuth.IdentityId = Convert.ToInt32(jsonPayload["identity_id"]);
+                userAuth.IdentityType = jsonPayload["identity_type"].ToString();
                 userAuth.DateCreated = dateCreated;
                 userAuth.AuthToken = jwtToken;
             }

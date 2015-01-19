@@ -101,7 +101,8 @@ namespace UmbracoAuthTokens.Attributes
                 {
                     //Just the presence of the token & being deserialised with correct SECRET key is a good sign
                     //Get the user from userService from it's username
-                    var user = ApplicationContext.Current.Services.UserService.GetByUsername(decodeJwt.UserName);
+                    var user = ApplicationContext.Current.Services.UserService.GetUserById(decodeJwt.IdentityId);
+                    //var user = ApplicationContext.Current.Services.UserService.GetByProviderKey(decodeJwt.IdentityId);
 
                     //If user is NOT Approved OR the user is Locked Out
                     if (!user.IsApproved || user.IsLockedOut)

@@ -10,12 +10,12 @@ namespace UmbracoAuthTokens.Data
         /// <summary>
         /// Try & see if we can find a record in the DB based off the User ID
         /// </summary>
-        /// <param name="userId">The user ID to try and find in the DB</param>
+        /// <param name="identityId">The user or member ID to try and find in the DB</param>
         /// <returns>Returns Auth Token record/object in DB or null if not found</returns>
-        public static UmbracoAuthToken GetAuthToken(int userId)
+        public static UmbracoAuthToken GetAuthToken(int identityId)
         {
             //Try & find a record in the DB from the userId
-            var findRecord = Database.SingleOrDefault<UmbracoAuthToken>("WHERE UserId=@0", userId);
+            var findRecord = Database.SingleOrDefault<UmbracoAuthToken>("WHERE IdentityId=@0", identityId);
 
             //Return the object (Will be null if can't find an item)
             return findRecord;
@@ -29,7 +29,7 @@ namespace UmbracoAuthTokens.Data
         public static void InsertAuthToken(UmbracoAuthToken authToken)
         {
             //Just to be 100% sure for data sanity that a record for the user does not exist already
-            var existingRecord = GetAuthToken(authToken.UserId);
+            var existingRecord = GetAuthToken(authToken.IdentityId);
 
             //Insert new record if no item exists already
             if (existingRecord == null)
@@ -43,10 +43,6 @@ namespace UmbracoAuthTokens.Data
                 existingRecord.AuthToken = authToken.AuthToken;
                 existingRecord.DateCreated = authToken.DateCreated;
 
-                //Update these fields in DB just in case they have changed on the user
-                existingRecord.UserName = authToken.UserName;
-                existingRecord.UserType = authToken.UserType;
-
                 //Save the existing record we found
                 Database.Save(existingRecord);
             }
@@ -56,16 +52,16 @@ namespace UmbracoAuthTokens.Data
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="userId"></param>
-        public static void DeleteAuthToken(int userId)
+        /// <param name="identityId"></param>
+        public static void DeleteAuthToken(int identityId)
         {
             //Just to be 100% sure for data sanity that a record for the user does not exist already
-            var existingRecord = GetAuthToken(userId);
+            var existingRecord = GetAuthToken(identityId);
 
             if (existingRecord != null)
             {
                 //We found the record in the DB - let's remove/delete it
-                Database.Delete<UmbracoAuthToken>("WHERE UserId=@0", userId);
+                Database.Delete<UmbracoAuthToken>("WHERE IdentityId=@0", identityId);
             }
 
         }
@@ -82,7 +78,7 @@ namespace UmbracoAuthTokens.Data
             //Is what we have in the DB matching on the UserID as lookup
 
             //Try & find record in DB on UserID
-            var lookupRecord = GetAuthToken(authToken.UserId);
+            var lookupRecord = GetAuthToken(authToken.IdentityId);
 
             //If we find a record in DB
             if (lookupRecord != null)

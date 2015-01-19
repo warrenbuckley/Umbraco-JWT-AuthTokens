@@ -213,6 +213,8 @@
     <Compile Include="Attributes\UmbracoAuthTokenAttribute.cs" />
     <Compile Include="Controllers\SecureApiController.cs" />
     <Compile Include="Controllers\UmbracoAuthTokenApiController.cs" />
+    <Compile Include="Data\AuthCredentials.cs" />
+    <Compile Include="Data\IdentityTypeEnum.cs" />
     <Compile Include="Data\UmbracoAuthToken.cs" />
     <Compile Include="Data\UmbracoAuthTokenDbHelper.cs" />
     <Compile Include="Data\UmbracoAuthTokenFactory.cs" />

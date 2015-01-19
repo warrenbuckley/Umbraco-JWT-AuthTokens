@@ -39,9 +39,8 @@ namespace UmbracoAuthTokens.Controllers
                 //Else user has no token yet - so let's create one
                 //Generate AuthToken DB object
                 var newToken = new UmbracoAuthToken();
-                newToken.UserId = user.Id;
-                newToken.UserName = user.Username;
-                newToken.UserType = user.UserType.Alias;
+                newToken.IdentityId = user.Id;
+                newToken.IdentityType = IdentityAuthType.User.ToString();
 
                 //Generate a new token for the user
                 var authToken = UmbracoAuthTokenFactory.GenerateUserAuthToken(newToken);
@@ -60,18 +59,6 @@ namespace UmbracoAuthTokens.Controllers
             //Throw unauthorised HTTP error
             var httpUnauthorised = new HttpResponseMessage(HttpStatusCode.Unauthorized);
             throw new HttpResponseException(httpUnauthorised);
-        }
-
-
-        /// <summary>
-        /// Simple model of the Umbraco backoffice Username & Password 
-        /// we HTTP POST to our controller method 'Authorise'
-        /// </summary>
-        public class AuthCredentials
-        {
-            public string Username { get; set; }
-
-            public string Password { get; set; }
         }
     }
 }
