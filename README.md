@@ -130,7 +130,9 @@ namespace UmbracoAuthTokens.TestApi
     }
 }
 ```
-
+## Release Notes
+* 1.0.0.0 - Initial Release
+* 1.1.0.0 - Update to DB schema and adds abbility to use JWT's with members as well now
 
 
 
