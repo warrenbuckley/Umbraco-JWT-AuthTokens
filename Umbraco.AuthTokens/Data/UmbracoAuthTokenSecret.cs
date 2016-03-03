@@ -16,7 +16,7 @@ namespace UmbracoAuthTokens.Data
         /// <param name="secret">Secret string to set</param>
         public static void SetSecret(string secret)
         {
-            Environment.SetEnvironmentVariable(SecretEnvVariable, secret);
+            Environment.SetEnvironmentVariable(SecretEnvVariable, secret,EnvironmentVariableTarget.Machine);
         }
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace UmbracoAuthTokens.Data
         /// <returns>Returns the string secret</returns>
         public static string GetSecret()
         {
-            var secret = Environment.GetEnvironmentVariable(SecretEnvVariable);
+            var secret = Environment.GetEnvironmentVariable(SecretEnvVariable, EnvironmentVariableTarget.Machine);
 
             //If it does not exist or is null/empty then we set a new one
             if (string.IsNullOrEmpty(secret))
