@@ -3,7 +3,7 @@ using Umbraco.Web.WebApi;
 
 namespace UmbracoAuthTokens.Controllers
 {
-    public abstract class UmbracoAuthTokenApiController : UmbracoApiController
+    public abstract class UmbracoUserAuthApiController : UmbracoApiController
     {
         /// <summary>
         /// When a user has been authorised with a JWT Auth token

@@ -68,7 +68,7 @@ namespace UmbracoAuthTokens
                         newToken.IdentityType = IdentityAuthType.Member.ToString();
 
                         //Generate a new token for the user
-                        var authToken = UmbracoAuthTokenFactory.GenerateUserAuthToken(newToken);
+                        var authToken = UmbracoAuthTokenFactory.GenerateAuthToken(newToken);
 
                         //NOTE: We insert authToken as opposed to newToken
                         //As authToken now has DateTime & JWT token string on it now
@@ -85,7 +85,7 @@ namespace UmbracoAuthTokens
         /// When we save a user, let's check if backoffice user has changed their password
         /// </summary>
         void UserService_SavingUser(IUserService sender, SaveEventArgs<IUser> e)
-        {  
+        {
             //Saved entites (Could be more than one user saved. Very unlikely?)
             var user = e.SavedEntities.FirstOrDefault();
 
@@ -111,7 +111,7 @@ namespace UmbracoAuthTokens
                         newToken.IdentityType = IdentityAuthType.User.ToString();
 
                         //Generate a new token for the user
-                        var authToken = UmbracoAuthTokenFactory.GenerateUserAuthToken(newToken);
+                        var authToken = UmbracoAuthTokenFactory.GenerateAuthToken(newToken);
 
                         //NOTE: We insert authToken as opposed to newToken
                         //As authToken now has DateTime & JWT token string on it now

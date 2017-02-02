@@ -210,9 +210,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\UmbracoAuthTokenAttribute.cs" />
+    <Compile Include="Attributes\UmbracoMemberAuthToken.cs" />
+    <Compile Include="Attributes\UmbracoUserAuthToken.cs" />
     <Compile Include="Controllers\SecureApiController.cs" />
-    <Compile Include="Controllers\UmbracoAuthTokenApiController.cs" />
+    <Compile Include="Controllers\UmbracoMemberAuthApiController.cs" />
+    <Compile Include="Controllers\UmbracoUserAuthApiController.cs" />
     <Compile Include="Data\AuthCredentials.cs" />
     <Compile Include="Data\IdentityTypeEnum.cs" />
     <Compile Include="Data\UmbracoAuthToken.cs" />

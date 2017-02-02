@@ -9,8 +9,8 @@ using UmbracoAuthTokens.Controllers;
 namespace UmbracoAuthTokens.TestApi
 {
     [PluginController("Secured")]
-    [UmbracoAuthToken("content", "settings")]
-    public class ContentApiController : UmbracoAuthTokenApiController
+    [UmbracoUserAuthToken("content", "settings")]
+    public class ContentApiController : UmbracoUserAuthApiController
     {
         /// <summary>
         /// 

@@ -1,7 +1,7 @@
 Umbraco JWT AuthTokens
 ======================
 
-This is a repository for providing a secure based API to perform backoffice actions using JWT Auth tokens
+This is a repository for providing a secure based API to perform backoffice actions using JWT Auth tokens. https://oromand.github.io/Umbraco-JWT-AuthTokens/
 
 ## What are JWTs?
 They are an auth token that allows you to send a piece of JSON encoded as a token and are the more modern approach to deal with auth in applications 
