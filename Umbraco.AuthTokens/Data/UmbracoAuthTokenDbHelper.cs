@@ -1,4 +1,5 @@
-﻿using Umbraco.Core;
+﻿using System;
+using Umbraco.Core;
 using Umbraco.Core.Persistence;
 
 namespace UmbracoAuthTokens.Data
@@ -74,6 +75,13 @@ namespace UmbracoAuthTokens.Data
         /// <returns></returns>
         public static bool IsTokenValid(UmbracoAuthToken authToken)
         {
+
+            //Let's verify that this token is not expired
+            if (authToken.DateExpires < DateTime.UtcNow)
+            {
+                return false;
+            }
+
             //Let's verify the token we have
             //Is what we have in the DB matching on the UserID as lookup
 
@@ -84,7 +92,8 @@ namespace UmbracoAuthTokens.Data
             if (lookupRecord != null)
             {
                 //Lets verify the token we have is the same on the DB record
-                //May not match as the user may have saved the password & caused a new token to be generated
+                //May not match as the user may have saved the password & caused a new token to be 
+
                 return authToken.AuthToken == lookupRecord.AuthToken;
             }
 
