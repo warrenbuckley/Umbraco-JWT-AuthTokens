@@ -26,17 +26,7 @@ namespace UmbracoAuthTokens.Controllers
                 //Get the backoffice user from username
                 var user = ApplicationContext.Services.UserService.GetByUsername(auth.Username);
 
-                //Check if we have an Auth Token for user
-                var hasAuthToken = UserAuthTokenDbHelper.GetAuthToken(user.Id);
 
-                //If the token already exists
-                if (hasAuthToken != null)
-                {
-                    //Lets just return it in the request
-                    return hasAuthToken.AuthToken;
-                }
-
-                //Else user has no token yet - so let's create one
                 //Generate AuthToken DB object
                 var newToken = new UmbracoAuthToken();
                 newToken.IdentityId = user.Id;
@@ -44,9 +34,6 @@ namespace UmbracoAuthTokens.Controllers
 
                 //Generate a new token for the user
                 var authToken = UmbracoAuthTokenFactory.GenerateUserAuthToken(newToken);
-
-                //We insert authToken as opposed to newToken
-                //As authToken now has DateTime & JWT token string on it now
 
                 //Store in DB (inserts or updates existing)
                 UserAuthTokenDbHelper.InsertAuthToken(authToken);

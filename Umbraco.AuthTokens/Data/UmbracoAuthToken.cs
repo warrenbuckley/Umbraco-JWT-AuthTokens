@@ -25,6 +25,8 @@ namespace UmbracoAuthTokens.Data
         [Column("authToken")]
         public string AuthToken { get; set; }
 
+        [Column("dateExpires")]
+        public DateTime DateExpires { get; set; }
 
     }
 }
