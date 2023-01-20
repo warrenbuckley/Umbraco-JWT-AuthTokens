@@ -79,7 +79,7 @@ In this project there is a built in Web API URL route for you to do a HTTP POST 
 http://yoursite.co.uk/umbraco/TokenAuth/SecureApi/Authorise
 
 ## Secured API Controller
-The following is a very simple secued Umbraco API controller, obviously your needs and uses will be much better than the very basic example shown here.
+The following is a very simple secured Umbraco API controller, obviously your needs and uses will be much better than the very basic example shown here.
 
 The `UmbracoAuthToken` attribute has an optional parameter `HasAccessToSections` which is an string array of Umbraco backoffice section aliases that the attempted backoffice Umbraco user should have access to.
 
